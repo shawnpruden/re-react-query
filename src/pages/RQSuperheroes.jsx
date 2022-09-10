@@ -7,12 +7,14 @@ const fetchData = () => {
 };
 
 export default function RQSuperheroes() {
-  const { isLoading, data, isError, error } = useQuery(
+  const { isLoading, data, isError, error, isFetching } = useQuery(
     ['super-heros'],
-    fetchData
+    fetchData,
+    { cacheTime: 5000 } // > default is 5 mins
   );
 
-  console.log(isLoading, data);
+  // > if data remains the same as cashed data, isLoading is not changed but there is a background refetching to ensure the data is up to date
+  console.log({ isLoading, isFetching });
 
   return (
     <>
