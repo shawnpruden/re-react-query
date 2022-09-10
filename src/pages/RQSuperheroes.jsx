@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 const fetchData = () => {
   return axios.get('http://localhost:4000/superheroes');
@@ -8,7 +8,7 @@ const fetchData = () => {
 
 export default function RQSuperheroes() {
   const { isLoading, data, isError, error } = useQuery(
-    'super-heros',
+    ['super-heros'],
     fetchData
   );
 
