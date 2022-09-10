@@ -7,7 +7,10 @@ const fetchData = () => {
 };
 
 export default function RQSuperheroes() {
-  const { isLoading, data } = useQuery('super-heros', fetchData);
+  const { isLoading, data, isError, error } = useQuery(
+    'super-heros',
+    fetchData
+  );
 
   console.log(isLoading, data);
 
@@ -17,10 +20,16 @@ export default function RQSuperheroes() {
         <h2>Loading...</h2>
       ) : (
         <>
-          <h2>React Query Superheroes</h2>
-          {data?.data.map(({ name }, index) => (
-            <p key={index}>{name}</p>
-          ))}
+          {isError ? (
+            <h2>{error.message}</h2>
+          ) : (
+            <>
+              <h2>React Query Superheroes</h2>
+              {data?.data.map(({ name }, index) => (
+                <p key={index}>{name}</p>
+              ))}
+            </>
+          )}
         </>
       )}
     </>
