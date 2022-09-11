@@ -14,6 +14,10 @@ export default function RQSuperheroes() {
       cacheTime: 5000, // > default is 5 mins, data will be cashed for 5s (with background refetching) after user left current page, isLoading remains false
 
       staleTime: 30000, // > default is 0, from fresh to stale after 30s (without background refetching within 30s / no additional requests), isLoading and isFetching both remain false
+
+      refetchOnMount: 'always', // > default is true, no matter the query data is stale or not, the query will always refetch the data when component mounts
+
+      refetchOnWindowFocus: true, // > default is true, anytime the window loses focus and gain focus again a background refetching is initiated
     }
   );
 
