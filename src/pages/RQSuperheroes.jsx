@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const fetchData = () => {
@@ -7,14 +6,8 @@ const fetchData = () => {
 };
 
 export default function RQSuperheroes() {
-  const [interval, setInterval] = useState(3000);
-
   const onSuccess = ({ data }) => {
     console.log('perform side effect after fetching data', data);
-
-    if (data.length === 4) {
-      setInterval(null);
-    }
   };
 
   const onError = (err) => {
@@ -44,7 +37,7 @@ export default function RQSuperheroes() {
 
       onSuccess,
       onError, // > retry 3 times before calling this func
-      refetchInterval: interval,
+      select: ({ data }) => data.map((hero) => hero.name), // > data transformation; return data contains an array of name
     }
   );
 
@@ -63,8 +56,12 @@ export default function RQSuperheroes() {
             <>
               <h2>React Query Superheroes</h2>
               <button onClick={refetch}>Fetch Data</button>
-              {data?.data.map(({ name }, index) => (
+              {/* {data?.data.map(({ name }, index) => (
                 <p key={index}>{name}</p>
+              ))} */}
+
+              {data.map((heroName, index) => (
+                <p key={index}>{heroName}</p>
               ))}
             </>
           )}
