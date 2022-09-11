@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const fetchData = () => {
@@ -7,6 +7,20 @@ const fetchData = () => {
 };
 
 export default function RQSuperheroes() {
+  const [interval, setInterval] = useState(3000);
+
+  const onSuccess = ({ data }) => {
+    console.log('perform side effect after fetching data', data);
+
+    if (data.length === 4) {
+      setInterval(null);
+    }
+  };
+
+  const onError = (err) => {
+    console.log('perform side effect after encountering error', err);
+  };
+
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     ['super-heros'],
     fetchData,
@@ -24,8 +38,13 @@ export default function RQSuperheroes() {
       refetchInterval: 2000, // > default is false, refetch data every 2s; pauses if window loses its focus
       refetchIntervalInBackground: true, // > default is false, continue to refetch data even when window is not in focus
       */
-
+      /* 
       enabled: false, // > disabled fetching on mount
+      */
+
+      onSuccess,
+      onError, // > retry 3 times before calling this func
+      refetchInterval: interval,
     }
   );
 
