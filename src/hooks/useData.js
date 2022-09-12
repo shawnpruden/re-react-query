@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 const fetchData = () => axios.get('http://localhost:4000/superheroes');
 
 export default function useData(onSuccess, onError) {
-  return useQuery(['super-heros'], fetchData, {
+  return useQuery(['superheroes'], fetchData, {
     /*
       cacheTime: 5000, // > default is 5 mins, data will be cashed for 5s (with background refetching) after user left current page; isLoading remains false
 
