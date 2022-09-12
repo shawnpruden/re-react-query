@@ -39,5 +39,19 @@
       "id": 4,
       "name": "Joey Tribbiani"
     }
+  ],
+
+  "users": [
+    {
+      "id": "dev.shawn@yahoo.com",
+      "channelId": "shawnpruden"
+    }
+  ],
+
+  "channels": [
+    {
+      "id": "shawnpruden",
+      "courses": ["react", "nextjs", "native"]
+    }
   ]
 }

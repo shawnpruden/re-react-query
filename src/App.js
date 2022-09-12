@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import DependentQueries from './pages/DependentQueries';
 import DynamicParallel from './pages/DynamicParallel';
 
 import Home from './pages/Home';
@@ -27,6 +28,10 @@ function App() {
         </nav>
 
         <Routes>
+          <Route
+            path="/rq-dependent"
+            element={<DependentQueries email="dev.shawn@yahoo.com" />}
+          />
           <Route
             path="/rq-dynamic-parallel"
             element={<DynamicParallel ids={[1, 3]} />}
