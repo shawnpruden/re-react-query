@@ -20,5 +20,24 @@
       "name": "Spider Man",
       "alterEgo": "Peter Parker"
     }
+  ],
+
+  "friends": [
+    {
+      "id": 1,
+      "name": "Chandler Bing"
+    },
+    {
+      "id": 2,
+      "name": "Phoebe Buffay"
+    },
+    {
+      "id": 3,
+      "name": "Monica Geller"
+    },
+    {
+      "id": 4,
+      "name": "Joey Tribbiani"
+    }
   ]
 }
