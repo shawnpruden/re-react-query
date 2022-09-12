@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import Home from './pages/Home';
+import RQSuperhero from './pages/RQSuperhero';
 import RQSuperheroes from './pages/RQSuperheroes';
 import Superheroes from './pages/Superheroes';
 
@@ -22,7 +23,9 @@ function App() {
             </li>
           </ul>
         </nav>
+
         <Routes>
+          <Route path="/rq-super-heroes/:id" element={<RQSuperhero />} />
           <Route path="/super-heroes" element={<Superheroes />} />
           <Route path="/rq-super-heroes" element={<RQSuperheroes />} />
           <Route path="/" element={<Home />} />

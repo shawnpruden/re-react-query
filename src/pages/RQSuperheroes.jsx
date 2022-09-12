@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useData } from '../hooks';
 
 export default function RQSuperheroes() {
@@ -33,8 +34,15 @@ export default function RQSuperheroes() {
                 <p key={index}>{name}</p>
               ))} */}
 
-              {data.map((heroName, index) => (
-                <p key={index}>{heroName}</p>
+              {data.map(({ id, name }) => (
+                <p key={id}>
+                  <Link
+                    to={`/rq-super-heroes/${id}`}
+                    style={{ all: 'unset', cursor: 'pointer' }}
+                  >
+                    {name}
+                  </Link>
+                </p>
               ))}
             </>
           )}

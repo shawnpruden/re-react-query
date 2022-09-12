@@ -2,9 +2,7 @@ import axios from 'axios';
 
 import { useQuery } from '@tanstack/react-query';
 
-const fetchData = () => {
-  return axios.get('http://localhost:4000/superheroes');
-};
+const fetchData = () => axios.get('http://localhost:4000/superheroes');
 
 export default function useData(onSuccess, onError) {
   return useQuery(['super-heros'], fetchData, {
@@ -27,6 +25,11 @@ export default function useData(onSuccess, onError) {
 
     onSuccess,
     onError, // > retry 3 times before calling this func
+
+    /* 
     select: ({ data }) => data.map((hero) => hero.name), // > data transformation; return data contains an array of name
+    */
+
+    select: ({ data }) => data,
   });
 }
