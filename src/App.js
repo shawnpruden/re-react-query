@@ -4,6 +4,7 @@ import DependentQueries from './pages/DependentQueries';
 import DynamicParallel from './pages/DynamicParallel';
 
 import Home from './pages/Home';
+import InfiniteQueries from './pages/InfiniteQueries';
 import PaginatedQueriesPage from './pages/PaginatedQueries';
 import ParallelQueries from './pages/ParallelQueries';
 import RQSuperhero from './pages/RQSuperhero';
@@ -29,6 +30,7 @@ function App() {
         </nav>
 
         <Routes>
+          <Route path="/rq-infinite" element={<InfiniteQueries />} />
           <Route path="/rq-paginated" element={<PaginatedQueriesPage />} />
           <Route
             path="/rq-dependent"
