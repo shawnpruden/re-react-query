@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useData } from '../hooks';
+import { useFetch, useMutate } from '../hooks';
 
 export default function RQSuperheroes() {
+  const [name, setName] = useState('');
+  const [alterEgo, setAlterEgo] = useState('');
+
   const onSuccess = ({ data }) => {
     console.log('perform side effect after fetching data', data);
   };
@@ -10,13 +14,23 @@ export default function RQSuperheroes() {
     console.log('perform side effect after encountering error', err);
   };
 
-  const { data, isLoading, isFetching, isError, error, refetch } = useData(
+  const { data, isLoading, isFetching, isError, error, refetch } = useFetch(
     onSuccess,
     onError
   );
 
+  const { mutate: addHero } = useMutate();
+
   // > if data remains the same as cashed data, isLoading is not changed but there is a background refetching to ensure the data is up to date
-  console.log({ isLoading, isFetching });
+  // console.log({ isLoading, isFetching });
+
+  const handleClick = () => {
+    console.log({ name, alterEgo });
+
+    const hero = { name, alterEgo };
+
+    addHero(hero);
+  };
 
   return (
     <>
@@ -29,6 +43,21 @@ export default function RQSuperheroes() {
           ) : (
             <>
               <h2>React Query Superheroes</h2>
+
+              <div>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={alterEgo}
+                  onChange={(e) => setAlterEgo(e.target.value)}
+                />
+                <button onClick={handleClick}>Add Hero</button>
+              </div>
+
               <button onClick={refetch}>Fetch Data</button>
               {/* {data?.data.map(({ name }, index) => (
                 <p key={index}>{name}</p>

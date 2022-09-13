@@ -19,9 +19,13 @@
       "id": 4,
       "name": "Spider Man",
       "alterEgo": "Peter Parker"
+    },
+    {
+      "name": "The Flash",
+      "alterEgo": "Barry Allen",
+      "id": 5
     }
   ],
-
   "friends": [
     {
       "id": 1,
@@ -40,21 +44,22 @@
       "name": "Joey Tribbiani"
     }
   ],
-
   "users": [
     {
       "id": "dev.shawn@yahoo.com",
       "channelId": "shawnpruden"
     }
   ],
-
   "channels": [
     {
       "id": "shawnpruden",
-      "courses": ["react", "nextjs", "native"]
+      "courses": [
+        "react",
+        "nextjs",
+        "native"
+      ]
     }
   ],
-
   "colors": [
     {
       "id": 1,
