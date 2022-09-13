@@ -53,11 +53,7 @@
   "channels": [
     {
       "id": "shawnpruden",
-      "courses": [
-        "react",
-        "nextjs",
-        "native"
-      ]
+      "courses": ["react", "nextjs", "native"]
     }
   ],
   "colors": [
