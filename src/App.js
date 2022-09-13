@@ -4,6 +4,7 @@ import DependentQueries from './pages/DependentQueries';
 import DynamicParallel from './pages/DynamicParallel';
 
 import Home from './pages/Home';
+import PaginatedQueriesPage from './pages/PaginatedQueries';
 import ParallelQueries from './pages/ParallelQueries';
 import RQSuperhero from './pages/RQSuperhero';
 import RQSuperheroes from './pages/RQSuperheroes';
@@ -28,6 +29,7 @@ function App() {
         </nav>
 
         <Routes>
+          <Route path="/rq-paginated" element={<PaginatedQueriesPage />} />
           <Route
             path="/rq-dependent"
             element={<DependentQueries email="dev.shawn@yahoo.com" />}
