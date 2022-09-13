@@ -24,6 +24,11 @@
       "name": "The Flash",
       "alterEgo": "Barry Allen",
       "id": 5
+    },
+    {
+      "name": "Green Arrow",
+      "alterEgo": "Oliver Queen",
+      "id": 6
     }
   ],
   "friends": [
@@ -53,7 +58,11 @@
   "channels": [
     {
       "id": "shawnpruden",
-      "courses": ["react", "nextjs", "native"]
+      "courses": [
+        "react",
+        "nextjs",
+        "native"
+      ]
     }
   ],
   "colors": [
