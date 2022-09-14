@@ -32,6 +32,7 @@ export default function InfiniteQueries() {
     <>
       <div>
         {data?.pages.map(({ data }, index) => {
+          // > { data } = group
           return (
             <Fragment key={index}>
               {data.map(({ id, label }) => (
